@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://vtxy2shipjbo"]
+
+[ext_resource type="PackedScene" uid="uid://dcrb1upnaw4cx" path="res://assets/Walk.tscn" id="1_a202f"]
+[ext_resource type="Script" uid="uid://csifvputamk0e" path="res://node_3d.gd" id="1_noarx"]
+[ext_resource type="PackedScene" uid="uid://bgniu4kojathr" path="res://assets/Flying Back Death.tscn" id="3_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://5b6yait2t6sf" path="res://assets/Run.tscn" id="3_r3fl7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
+
+[sub_resource type="Sky" id="Sky_a0tk4"]
+sky_material = SubResource("ProceduralSkyMaterial_noarx")
+
+[sub_resource type="Environment" id="Environment_r3fl7"]
+background_mode = 2
+sky = SubResource("Sky_a0tk4")
+ambient_light_color = Color(0.973535, 0.973535, 0.973535, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_noarx")
+
+[node name="Roman1" parent="." instance=ExtResource("1_a202f")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -10.6676, -1.69305, -3.00375)
+
+[node name="Roman2" parent="." instance=ExtResource("1_a202f")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -8.25833, -1.69305, -3.00375)
+
+[node name="Roman3" parent="." instance=ExtResource("3_r3fl7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.69865, -1.693, -3.0917)
+
+[node name="Roman4" parent="." instance=ExtResource("3_a0tk4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.22511, -1.693, -3.07629)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74205, -0.725858, 5.57027)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02508, 2.4578, 5.55577)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r3fl7")
